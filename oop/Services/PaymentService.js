@@ -1,26 +1,30 @@
 
 export class PaymentService{
-
+    #paymentMethods ;
     constructor(){
         
-        this.paymentMethods = new Map();
+        this.#paymentMethods = new Map();
     }
 
     addPaymentMethod(userId, paymentMethod)
     {
-        if(!this.paymentMethods.has(userId)){
-            this.paymentMethods.set(userId, new Map()) ;
+        if(!this.#paymentMethods.has(userId)){
+            this.#paymentMethods.set(userId, new Map()) ;
         }
 
-        const methodsMap  = this.paymentMethods.get(userId);
+        const methodsMap  = this.#paymentMethods.get(userId);
 
-        methodsMap.set(paymentMethod.methodId, paymentMethod) ;
+        if (methodsMap.has(paymentMethod.getMethodId())) {
+            console.log("Replacing existing payment method");
+        }
 
-        console.log(`Payment method added: ${paymentMethod.methodId}`);
+        methodsMap.set(paymentMethod.getMethodId(), paymentMethod) ;
+
+        console.log(`Payment method added: ${paymentMethod.getMethodId()}`);
     }
 
     makePayment(userId, methodId,amount){
-        const methodsMap = this.paymentMethods.get(userId);
+        const methodsMap = this.#paymentMethods.get(userId);
         if(!methodsMap){
             console.log("No payment methods found");
             return ;

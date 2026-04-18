@@ -36,7 +36,7 @@ service.addPaymentMethod(
 
 service.addPaymentMethod(
     userId1,
-    new Upi("Husban","Upi","husbansUpi")
+    new Upi("Husban","upi","husbansUpi")
 )
 
 
@@ -52,14 +52,14 @@ service.addPaymentMethod(
 
 service.addPaymentMethod(
     userId2,
-    new Upi("Raina","Upi","rainasUpi")
+    new Upi("Raina","upi","rainasUpi")
 )
 
 service.makePayment(userId1, "creditCard", 100);
 service.makePayment(userId1, "debitCard", 200);
-service.makePayment(userId1, "Upi", 50);
+service.makePayment(userId1, "upi", 50);
 
 
 service.makePayment(userId2, "creditCard", 300);
 service.makePayment(userId2, "debitCard", 150);
-service.makePayment(userId2, "Upi", 75);
+service.makePayment(userId2, "upi", 75);
