@@ -20,6 +20,7 @@ Hands-on practice of core Low Level Design concepts using JavaScript.
 
 #### Behavioral
 - **Memento Pattern** → undo/restore state using snapshots  
+- **Observer Pattern** → publisher notifies multiple subscribers on state change
 
 ---
 
@@ -28,6 +29,7 @@ Hands-on practice of core Low Level Design concepts using JavaScript.
 - Use polymorphism over conditionals  
 - Keep classes small and focused  
 - Design for extension  
+- Enable loose coupling using event-driven communication  
 
 ---
 
